@@ -1,6 +1,6 @@
-import * as cors from 'cors';
-import * as helmet from 'helmet';
-import * as logger from 'morgan';
+import cors from 'cors';
+import helmet from 'helmet';
+import logger from 'morgan';
 import { GraphQLServer } from 'graphql-yoga';
 import schema from './schema';
 
