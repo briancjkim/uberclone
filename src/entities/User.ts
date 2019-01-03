@@ -42,6 +42,8 @@ class User extends BaseEntity {
   @Column({ type: 'text', nullable: true })
   phoneNumber: string;
 
+  @Column({ type: 'boolean', default: false })
+  verifiedEmail: boolean;
 
   @Column({ type: 'boolean', default: false })
   verifiedPhoneNumber: boolean;
