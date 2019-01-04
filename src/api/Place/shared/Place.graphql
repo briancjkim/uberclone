@@ -6,5 +6,7 @@ type Place{
   address:String!
   isFav:Boolean
   createdAt:String!
+  user:User!
+  userId:Int!
   updatedAt:String
 }

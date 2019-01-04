@@ -15,14 +15,14 @@ uber clone with graphql nodejs react
 ### Private Resolvers
 
 -[x] Get my Profile
--[] Request Email Verification
--[] Complete Email Verification
--[] Update my Profile
--[] Toggle Driving Mode
--[] Report Loction/ Orientation
--[] Add Place
--[] Edit Place
--[] Delete Place
+-[x] Request Email Verification
+-[x] Complete Email Verification
+-[x] Update my Profile
+-[x] Toggle Driving Mode
+-[x] Report Loction/ Orientation
+-[x] Add Place
+-[x] Edit Place
+-[x] Delete Place
 -[] See Nearby Drivers
 -[] Subscribe to Nearyby Drivers
 -[] Request a Ride

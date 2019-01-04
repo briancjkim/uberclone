@@ -3,7 +3,7 @@ import { rideStatus } from '../types/types';
 import User from './User';
 
 @Entity()
-class Place extends BaseEntity {
+class Ride extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
   @Column({ type: "text", enum: ["ACCEPTED", "FINISHED", "ONROUTE", "REQEUSTING", "CANCLED"] })
@@ -36,4 +36,4 @@ class Place extends BaseEntity {
   @UpdateDateColumn()
   updatedAt: string;
 }
-export default Place;
+export default Ride;
