@@ -23,7 +23,7 @@ class Place extends BaseEntity {
   user: User;
 
   @CreateDateColumn()
-  createAt: string;
+  createdAt: string;
   @UpdateDateColumn()
   updatedAt: string;
 }

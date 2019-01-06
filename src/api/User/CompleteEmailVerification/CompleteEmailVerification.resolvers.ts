@@ -2,7 +2,7 @@ import privateResolver from "../../../utils/privateResolver";
 import { Resolvers } from '../../../types/resolvers';
 import { CompleteEmailVerificationMutationArgs, CompleteEmailVerificationResponse } from '../../../types/graph';
 import User from "../../../entities/User";
-import Verification from "../../Verification/Verification.resolvers";
+import Verification from "../../../entities/Verification";
 
 
 const resolvers: Resolvers = {
@@ -34,21 +34,21 @@ const resolvers: Resolvers = {
                 error: "Cant verify email"
               };
             }
-          }
-          catch (error) {
+          } catch (error) {
             return {
               ok: false,
-              error: error.mesage
-            }
+              error: error.message
+            };
           }
         } else {
           return {
             ok: false,
             error: "No email to verify"
-          }
+          };
         }
       }
     )
   }
-}
+};
+
 export default resolvers;

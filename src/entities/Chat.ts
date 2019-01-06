@@ -15,7 +15,7 @@ class Chat extends BaseEntity {
   participants: User[];
 
   @CreateDateColumn()
-  createAt: string;
+  createdAt: string;
   @UpdateDateColumn()
   updatedAt: string;
 }
