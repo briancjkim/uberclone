@@ -6,7 +6,7 @@ import User from './User';
 class Ride extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
-  @Column({ type: "text", enum: ["ACCEPTED", "FINISHED", "ONROUTE", "REQEUSTING", "CANCLED"] })
+  @Column({ type: "text", enum: ["ACCEPTED", "FINISHED", "ONROUTE", "REQEUSTING", "CANCLED"], default: "REQUESTING" })
   status: rideStatus;
   @Column({ type: "text" })
   pickUpAddress: string;
@@ -27,9 +27,13 @@ class Ride extends BaseEntity {
   @Column({ type: "text" })
   duration: string;
   @ManyToOne(type => User, user => user.rideAsPassenger)
-  passenger: User
-  @ManyToOne(type => User, user => user.rideAsDriver)
-  driver: User
+  passenger: User;
+  @Column({ nullable: true })
+  passengerId: number;
+  @ManyToOne(type => User, user => user.rideAsDriver, { nullable: true })
+  driver: User;
+  @Column({ nullable: true })
+  driverId: number;
 
   @CreateDateColumn()
   createdAt: string;

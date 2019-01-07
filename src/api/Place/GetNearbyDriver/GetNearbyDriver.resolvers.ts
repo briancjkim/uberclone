@@ -14,7 +14,7 @@ const resolvers: Resolvers = {
           const drivers: User[] = await getRepository(User).find({
             isDriving: true,
             lastLat: Between(lastLat - 0.05, lastLat + 0.05),
-            lastLng: Between(lastLng - 0.05, lastLat + 0.05)
+            lastLng: Between(lastLng - 0.05, lastLng + 0.05)
           });
           return {
             ok: true,
