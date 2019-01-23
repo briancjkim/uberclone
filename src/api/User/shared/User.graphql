@@ -17,9 +17,10 @@ type User{
   lastLat:Float
   lastOrientation:Float
   fbId:String
-  chat:Chat
   places:[Place]
   messages:[Message]
+  chatAsDriver:[Chat]
+  chatAsPassenger:[Chat]
   rideAsPassenger:[Ride]
   rideAsDriver:[Ride]
   createdAt:String!

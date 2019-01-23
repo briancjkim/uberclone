@@ -26,9 +26,9 @@ uber clone with graphql nodejs react
 -[x] See Nearby Drivers
 -[x] Subscribe to Nearyby Drivers
 -[x] Request a Ride
--[] Get Nearby Ride Requests
--[] Subscribe to Nearby Ride Requests
--[] Subscribe to Ride Status
+-[x] Get Nearby Ride Requests
+-[x] Subscribe to Nearby Ride Requests
+-[x] Subscribe to Ride Status
 -[] Get Chat Room Messages
 -[] Subscribe to Chat Room Messages
 -[] Send a Chat Message

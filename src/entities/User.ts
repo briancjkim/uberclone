@@ -9,7 +9,6 @@ import {
   UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate,
-  ManyToOne,
   OneToMany
 } from 'typeorm';
 
@@ -75,8 +74,11 @@ class User extends BaseEntity {
   @OneToMany(type => Message, message => message.user)
   messages: Message[];
 
-  @ManyToOne(type => Chat, chat => chat.participants)
-  chat: Chat;
+  @OneToMany(type => Chat, chat => chat.driver)
+  chatAsDriver: Chat[];
+
+  @OneToMany(type => Chat, chat => chat.passenger)
+  chatAsPassenger: Chat[];
 
   @OneToMany(type => Ride, ride => ride.passenger)
   rideAsPassenger: Ride[]

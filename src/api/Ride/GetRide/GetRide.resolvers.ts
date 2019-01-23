@@ -14,7 +14,7 @@ const resolvers: Resolvers = {
         { req }
       ): Promise<GetRideResponse> => {
         const user: User = req.user;
-
+        // await User.update({ id: 8 }, { isRiding: false, isTaken: false });
         try {
           const ride = await Ride.findOne({
             id: args.rideId

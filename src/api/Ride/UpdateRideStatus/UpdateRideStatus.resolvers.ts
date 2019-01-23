@@ -3,6 +3,7 @@ import privateResolver from "../../../utils/privateResolver";
 import User from "../../../entities/User";
 import { UpdateRideStatusMutationArgs, UpdateRideStatusResponse } from "../../../types/graph";
 import Ride from "../../../entities/Ride";
+import Chat from "../../../entities/Chat";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -20,11 +21,17 @@ const resolvers: Resolvers = {
               ride = await Ride.findOne({
                 id: args.rideId,
                 status: "REQUESTING"
-              });
+              }, { relations: ["passenger"] });
               if (ride) {
                 ride.driver = user;
                 user.isTaken = true;
                 user.save();
+                const chat = await Chat.create({
+                  driver: user,
+                  passenger: ride.passenger
+                }).save();
+                ride.chat = chat;
+                ride.save();
               }
             } else {
               ride = await Ride.findOne({
