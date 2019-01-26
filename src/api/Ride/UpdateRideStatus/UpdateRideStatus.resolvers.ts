@@ -21,23 +21,30 @@ const resolvers: Resolvers = {
               ride = await Ride.findOne({
                 id: args.rideId,
                 status: "REQUESTING"
-              }, { relations: ["passenger"] });
+              }, { relations: ["passenger", "driver"] });
               if (ride) {
                 ride.driver = user;
                 user.isTaken = true;
-                user.save();
+                await user.save();
                 const chat = await Chat.create({
                   driver: user,
                   passenger: ride.passenger
                 }).save();
                 ride.chat = chat;
-                ride.save();
+                await ride.save();
               }
             } else {
               ride = await Ride.findOne({
                 id: args.rideId,
                 driver: user
-              });
+              }, { relations: ["passenger", "driver"] });
+              if (args.status === "FINISHED") {
+                user.isTaken = false;
+                await user.save();
+                const passenger: User = ride!.passenger;
+                passenger.isRiding = false;
+                await passenger.save();
+              }
             }
             if (ride) {
               ride.status = args.status;
@@ -45,24 +52,28 @@ const resolvers: Resolvers = {
               pubSub.publish("rideUpdate", { RideStatusSubscription: ride });
               return {
                 ok: true,
-                error: null
+                error: null,
+                rideId: ride.id
               };
             } else {
               return {
                 ok: false,
-                error: "Cant update ride"
+                error: "Cant update ride",
+                rideId: null
               };
             }
           } catch (error) {
             return {
               ok: false,
-              error: error.message
+              error: error.message,
+              rideId: null
             };
           }
         } else {
           return {
             ok: false,
-            error: "you are not driving"
+            error: "you are not driving",
+            rideId: null
           }
         }
       }

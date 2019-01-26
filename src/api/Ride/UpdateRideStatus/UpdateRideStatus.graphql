@@ -1,6 +1,8 @@
 type UpdateRideStatusResponse{
   ok:Boolean!,
-  error:String
+  error:String,
+rideId:Int
+
 }
 
 enum StatusOptions{
