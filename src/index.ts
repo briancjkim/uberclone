@@ -1,4 +1,5 @@
-require('dotenv').config()
+import dotenv from "dotenv";
+dotenv.config({ path: "../.env" });
 
 import { Options } from 'graphql-yoga';
 import { createConnection } from 'typeorm';

@@ -4,12 +4,12 @@ const connectionOptions: ConnectionOptions = {
   type: "postgres",
   database: "nuber",
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: ["entities/**/*.*"],
   host: process.env.DB_ENDPOINT,
   port: 5432,
   username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSOWRD
+  password: process.env.DB_PASSWORD
 };
 
 export default connectionOptions;

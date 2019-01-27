@@ -1,0 +1,5 @@
+{
+  "name": "UberClone",
+  "version": 1,
+  "dotenv": ".env.production"
+}
